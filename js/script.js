@@ -50,10 +50,84 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!audioPlayer || !playBtn) return;
 
         const playIcon = playBtn.querySelector('i');
+        const progressBar = document.querySelector('.audio-progress-bar');
         let isPlaying = false;
+        let isUserInteraction = false;
 
-        // Preload audio and handle errors
-        audioPlayer.load();
+        // Initialize audio
+        audioPlayer.volume = 0.7; // Set default volume
+        audioPlayer.preload = 'metadata';
+
+        // Play/pause function
+        function togglePlay() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playIcon.classList.replace('fa-pause', 'fa-play');
+            } else {
+                // On first interaction, ensure audio is loaded
+                if (!isUserInteraction) {
+                    audioPlayer.load();
+                    isUserInteraction = true;
+                }
+                audioPlayer.play()
+                    .then(() => {
+                        playIcon.classList.replace('fa-play', 'fa-pause');
+                        // Update metadata for browsers that show media controls
+                        if ('mediaSession' in navigator) {
+                            navigator.mediaSession.metadata = new MediaMetadata({
+                                title: 'Follow Me Home | A Feels Mix',
+                                artist: 'Karmaxis ft ILLENIUM, Nurko & Friends',
+                                artwork: [
+                                    { src: 'https://example.com/cover.jpg', sizes: '96x96', type: 'image/jpeg' }
+                                ]
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Playback failed:', error);
+                        const playerMessage = document.querySelector('.player-message span');
+                        playerMessage.textContent = 'Click to enable audio (browser may block autoplay)';
+                        playerMessage.style.color = '#ff9900';
+                        
+                        // For Safari iOS which requires direct user interaction
+                        if (error.name === 'NotAllowedError') {
+                            alert('Please tap the play button to start audio. iOS requires this interaction.');
+                        }
+                    });
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Click on progress bar to seek
+        document.querySelector('.audio-progress')?.addEventListener('click', function(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audioPlayer.duration;
+            audioPlayer.currentTime = (clickX / width) * duration;
+        });
+
+        // Event listeners
+        playBtn.addEventListener('click', togglePlay);
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('ended', function() {
+            playIcon.classList.replace('fa-pause', 'fa-play');
+            isPlaying = false;
+            progressBar.style.width = '0%';
+        });
+        audioPlayer.addEventListener('pause', function() {
+            if (isPlaying) {
+                playIcon.classList.replace('fa-pause', 'fa-play');
+                isPlaying = false;
+            }
+        });
+
+        // Error handling
         audioPlayer.addEventListener('error', function() {
             console.error('Audio Error:', audioPlayer.error);
             const playerMessage = document.querySelector('.player-message span');
@@ -64,56 +138,12 @@ document.addEventListener('DOMContentLoaded', function() {
             playBtn.disabled = true;
         });
 
-        // Click handler with improved feedback
-        playBtn.addEventListener('click', async function() {
-            try {
-                if (isPlaying) {
-                    await audioPlayer.pause();
-                    playIcon.classList.replace('fa-pause', 'fa-play');
-                } else {
-                    await audioPlayer.play();
-                    playIcon.classList.replace('fa-play', 'fa-pause');
-                    
-                    // Update metadata for browsers that show media controls
-                    if ('mediaSession' in navigator) {
-                        navigator.mediaSession.metadata = new MediaMetadata({
-                            title: 'Follow Me Home | A Feels Mix',
-                            artist: 'Karmaxis ft ILLENIUM, Nurko & Friends',
-                            artwork: [
-                                { src: 'https://example.com/cover.jpg', sizes: '96x96', type: 'image/jpeg' }
-                            ]
-                        });
-                    }
-                }
-                isPlaying = !isPlaying;
-            } catch (error) {
-                console.error('Playback Error:', error);
-                const playerMessage = document.querySelector('.player-message span');
-                if (playerMessage) {
-                    playerMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> Click to enable audio';
-                    playerMessage.style.color = '#ff9900';
-                }
-                
-                // For Safari iOS which requires direct user interaction
-                if (error.name === 'NotAllowedError') {
-                    alert('Please tap the play button to start audio. iOS requires this interaction.');
-                }
-            }
-        });
-
-        // Handle audio ending
-        audioPlayer.addEventListener('ended', function() {
-            playIcon.classList.replace('fa-pause', 'fa-play');
-            isPlaying = false;
-        });
-
-        // Handle playback interruptions
-        audioPlayer.addEventListener('pause', function() {
-            if (isPlaying) {
-                playIcon.classList.replace('fa-pause', 'fa-play');
-                isPlaying = false;
-            }
-        });
+        // Mobile interaction helper
+        if ('ontouchstart' in window) {
+            document.body.addEventListener('touchstart', function() {
+                // This helps unlock audio on iOS
+            }, { once: true });
+        }
     };
 
     // =============================================
@@ -124,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         welcomeMessage.className = 'welcome-message';
         welcomeMessage.innerHTML = `
             <div class="welcome-content">
-                <i class="fas fa-music"></i>
+                <i class="fas fa-music" aria-hidden="true"></i>
                 <span>Welcome to my CV! Feel free to play some music while browsing</span>
             </div>
         `;
@@ -149,3 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.documentElement.classList.add('touch-device');
     }
 });
+
+// Update copyright year automatically
+document.getElementById('current-year').textContent = new Date().getFullYear();

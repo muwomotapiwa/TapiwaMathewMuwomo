@@ -622,21 +622,44 @@
     font-size: 0.8rem;
   }
   
-  /* Audio progress indicator (optional) */
-  .audio-progress {
-    height: 3px;
-    background: rgba(0, 161, 224, 0.2);
-    margin-top: 10px;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  
-  .audio-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--primary);
-    transition: width 0.1s linear;
-  }
+/* Audio Progress Bar Styles */
+.audio-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Error states */
+.player-message.error span {
+  color: #ff4444;
+}
+
+.player-message.warning span {
+  color: #ff9900;
+}
+
+.player-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Touch device specific styles */
+.touch-device .player-btn {
+  padding: 12px;
+  min-width: 48px;
+  min-height: 48px;
+}
   
   /* ============================================= */
   /* Welcome Message Styles */
