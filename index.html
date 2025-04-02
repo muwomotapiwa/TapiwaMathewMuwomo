@@ -11,6 +11,25 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="music-player">
+        <div class="music-header">
+            <i class="fas fa-headphones-alt"></i>
+            <span>I love listening to this mix while working!</span>
+        </div>
+        <div class="music-controls">
+            <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+            <div class="music-details">
+                <strong>Follow Me Home | A Feels Mix</strong><br>
+                <small>Karmaxis ft ILLENIUM, Nurko & Friends</small>
+            </div>
+        </div>
+        <div class="music-note">
+            <i class="fas fa-info-circle"></i>
+            <small>I don't own rights to this song - just sharing good vibes!</small>
+        </div>
+        <audio id="audioPlayer" src="assets/audio/follow-me-home-a-feels-mix.mp3"></audio>
+    </div>
+    
     <!-- Certification Badge Background Elements -->
     <img src="https://af6815798a.imgdist.com/pub/bfra/knkjywkm/fex/x6t/5eg/Administrator.png" class="cert-badge-bg" id="badge1" alt="Admin Certification" loading="lazy">
     <img src="https://af6815798a.imgdist.com/pub/bfra/knkjywkm/hyr/wgb/s6h/Salesforce-Marketing-cloud-account-engagement-specialist-certified.png" class="cert-badge-bg" id="badge2" alt="Account Engagement Certification" loading="lazy">
@@ -341,6 +360,23 @@
     <script>
         // Update copyright year automatically
         document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+        // Music player play/pause toggle
+        document.getElementById('playPauseBtn').addEventListener('click', function () {
+            const audio = document.getElementById('audioPlayer');
+            const icon = this.querySelector('i');
+    
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            }
+        });
     </script>
+    
 </body>
 </html>
