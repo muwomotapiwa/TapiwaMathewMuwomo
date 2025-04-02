@@ -417,6 +417,35 @@ background: linear-gradient(135deg, var(--secondary), #00a1e0);
 .certification-badge i {
 color: var(--primary);
 }
+.welcome-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 161, 224, 0.9);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.welcome-message.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.welcome-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.welcome-content i {
+    font-size: 1.2rem;
+}
 
 /* EDUCATION SECTION STYLES */
 .education-container {
