@@ -561,71 +561,94 @@ footer {
       opacity: 0.05;
   }
 }
-.music-player {
-  background-color: white;
-  border-left: 6px solid #00a1e0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 15px 20px;
-  margin: 15px auto;
-  max-width: 1170px;
-  border-radius: 10px;
-  font-size: 14px;
-  position: relative;
-  z-index: 999;
-}
-
-.music-header {
-  display: flex;
-  align-items: center;
-  color: #032d60;
-  font-weight: 600;
+.track {
+  padding: 10px 15px;
+  background: #f6f6f6;
+  border-radius: 6px;
   margin-bottom: 10px;
-}
-
-.music-header i {
-  margin-right: 8px;
-  color: #00a1e0;
-}
-
-.music-controls {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-}
-
-.music-controls button {
-  background-color: #00a1e0;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  color: white;
-  font-size: 16px;
-  margin-right: 15px;
-  cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.music-controls button:hover {
-  background-color: #0077b6;
+.track:hover {
+  background: #e0f7ff;
 }
 
-.music-details strong {
-  font-size: 16px;
+.track-number {
+  font-weight: bold;
+  margin-right: 15px;
+  color: #00a1e0;
+}
+
+.track-info .track-title {
+  font-size: 1rem;
+  font-weight: 600;
   color: #032d60;
 }
 
-.music-details small {
-  color: #666;
+.track-info .track-duration {
+  font-size: 0.8rem;
+  color: #999;
 }
 
-.music-note {
+.active-track {
+  background-color: #d2f1ff;
+  border-left: 4px solid #00a1e0;
+}
+
+.fancy-music-wrapper {
+  max-width: 70%;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 161, 224, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.fancy-music-wrapper:hover {
+  box-shadow: 0 10px 25px rgba(0, 161, 224, 0.25);
+}
+
+.fancy-music-wrapper audio {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f9fbfc;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-left: 4px solid #00a1e0;
+}
+
+.track-number {
+  color: #0077b6;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  color: #00a1e0;
-  font-size: 14px;
+  gap: 6px;
 }
 
-.music-note i {
-  margin-right: 6px;
+.track-info .track-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #032d60;
+}
+
+.track-info .track-duration {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 4px;
 }
