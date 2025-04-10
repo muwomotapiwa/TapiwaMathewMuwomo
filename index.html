@@ -11,25 +11,7 @@
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="fancy-music-wrapper">
-        <!-- Audio Element -->
-        <audio id="audioPlayer" controls></audio>
-      
-        <!-- Track Entry -->
-        <div class="track" data-src="assets/audio/followme.mp3">
-          <div class="track-number">
-            <i class="fas fa-info-circle"></i> I don't own rights to this song – just sharing good vibes!
-          </div>
-          <div class="track-info">
-            <div class="track-title">🎧 Follow Me Home | A Feels Mix</div>
-            <div class="track-duration">⏱ 57:20</div>
-          </div>
-        </div>
-      </div>
-      
-
-    
-    <!-- Certification Badge Background Elements -->
+        <!-- Certification Badge Background Elements -->
     <img src="https://af6815798a.imgdist.com/pub/bfra/knkjywkm/fex/x6t/5eg/Administrator.png" class="cert-badge-bg" id="badge1" alt="Admin Certification" loading="lazy">
     <img src="https://af6815798a.imgdist.com/pub/bfra/knkjywkm/hyr/wgb/s6h/Salesforce-Marketing-cloud-account-engagement-specialist-certified.png" class="cert-badge-bg" id="badge2" alt="Account Engagement Certification" loading="lazy">
     <img src="https://af6815798a.imgdist.com/pub/bfra/knkjywkm/x69/xqc/y8f/OmniStudio-Consultant-Certification-Badge.png" class="cert-badge-bg" id="badge3" alt="OmniStudio Certification" loading="lazy">
@@ -74,7 +56,7 @@
 
         <section class="summary">
             <h2>PROFESSIONAL SUMMARY</h2>
-            <p>Certified Salesforce Marketing Cloud Developer & Consultant with 3.5+ years of expertise in multi-channel campaign automation. Results-driven specialist experienced in designing, automating, and optimizing customer journeys. Skilled in integrating Marketing Cloud with external systems using REST/SOAP APIs, AMPscript, SSJS, and declarative tools. Proven track record in CRM process design, CloudPages development, customer privacy center implementation, and campaign performance tracking.</p>
+            <p>Certified Salesforce Marketing Professional with 3.5+ years of expertise in multi-channel campaign automation. Results-driven specialist experienced in designing, automating, and optimizing customer journeys. Skilled in integrating Marketing Cloud with external systems using REST/SOAP APIs, AMPscript, SSJS, and declarative tools. Proven track record in CRM process design, CloudPages development, customer privacy center implementation, and campaign performance tracking.</p>
         </section>
 
         <section>
@@ -354,42 +336,6 @@
             <p class="footer-credits">✨ Online CV crafted with <i class="fas fa-heart" style="color: #e91e63;" aria-hidden="true"></i> by Tapiwa M. Muwomo</p>
         </footer>
     </div>
-
-    <script src="js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const audioPlayer = document.getElementById('audioPlayer');
-          const tracks = document.querySelectorAll('.track');
-      
-          tracks.forEach(track => {
-            track.addEventListener('click', function () {
-              const src = this.getAttribute('data-src');
-              audioPlayer.src = src;
-              audioPlayer.play();
-      
-              // Optional: highlight selected track
-              tracks.forEach(t => t.classList.remove('active-track'));
-              this.classList.add('active-track');
-            });
-          });
-        });
-      </script>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const audioPlayer = document.getElementById('audioPlayer');
-          const tracks = document.querySelectorAll('.track');
-      
-          tracks.forEach(track => {
-            track.addEventListener('click', function () {
-              const src = this.getAttribute('data-src');
-              audioPlayer.src = src;
-              audioPlayer.play();
-            });
-          });
-        });
-      </script>
-      
-      
-    
+    <script src="js/script.js"></script> 
 </body>
 </html>
