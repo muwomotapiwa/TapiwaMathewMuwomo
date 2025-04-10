@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-let audio = new Audio('assets/audio/followme.mp3');
+let audio = new Audio('assets/audio/Snowfall_and_you_relax.mp3');
 let isPlaying = false;
 let currentTrack = 0;
 const tracks = document.querySelectorAll('.track');
