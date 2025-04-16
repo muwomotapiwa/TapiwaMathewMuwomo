@@ -102,5 +102,70 @@ audio.addEventListener('timeupdate', updateProgress);
 audio.addEventListener('ended', () => nextButton.click());
 loadTrack(currentTrack);
 
+// Printer //
+// Add this to your script.js file or in a script tag
+function prepareForPrint() {
+  // Clone the container to avoid modifying the original
+  const printContent = document.querySelector('.container').cloneNode(true);
+  
+  // Remove elements we don't want in print
+  const elementsToRemove = printContent.querySelectorAll('.music-player-wrapper, .music-disclaimer');
+  elementsToRemove.forEach(el => el.remove());
+  
+  // Create a print-specific stylesheet
+  const printStyles = document.createElement('style');
+  printStyles.innerHTML = `
+    @page {
+      size: auto;
+      margin: 0.5in;
+    }
+    
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    
+    /* Add all the print CSS from above here */
+    ${document.querySelector('style[media="print"]').innerHTML}
+  `;
+  
+  // Create a new window for printing
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>${document.title}</title>
+        <style>${printStyles.innerHTML}</style>
+      </head>
+      <body>
+        ${printContent.innerHTML}
+        <script>
+          window.onload = function() {
+            setTimeout(function() {
+              window.print();
+              window.close();
+            }, 200);
+          };
+        <\/script>
+      </body>
+    </html>
+  `);
+  printWindow.document.close();
+}
 
-
+// Add a print button to your HTML (optional)
+const printButton = document.createElement('button');
+printButton.textContent = 'Print CV';
+printButton.style.position = 'fixed';
+printButton.style.bottom = '20px';
+printButton.style.right = '20px';
+printButton.style.zIndex = '1000';
+printButton.style.padding = '10px 20px';
+printButton.style.backgroundColor = '#032D60';
+printButton.style.color = 'white';
+printButton.style.border = 'none';
+printButton.style.borderRadius = '4px';
+printButton.style.cursor = 'pointer';
+printButton.addEventListener('click', prepareForPrint);
+document.body.appendChild(printButton);
