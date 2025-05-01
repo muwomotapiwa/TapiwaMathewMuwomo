@@ -649,4 +649,53 @@ footer {
   font-style: italic;
 }
 
+/*Portfolio css*/
+.portfolio-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-btn:hover {
+  background-color: var(--secondary);
+}
+
+.portfolio-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.portfolio-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-card h3 {
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.portfolio-card a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
 

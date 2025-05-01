@@ -102,5 +102,22 @@ audio.addEventListener('timeupdate', updateProgress);
 audio.addEventListener('ended', () => nextButton.click());
 loadTrack(currentTrack);
 
+//Portfolio js
+function scrollToPortfolioButton() {
+  const target = document.getElementById("portfolioButtonAnchor");
+  target.scrollIntoView({ behavior: "smooth" });
+}
+
+function togglePortfolio() {
+  const section = document.getElementById("portfolioSection");
+  if (section.style.display === "none") {
+      section.style.display = "block";
+  } else {
+      section.style.display = "none";
+  }
+}
+
+
+
 
 

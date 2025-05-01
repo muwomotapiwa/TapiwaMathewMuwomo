@@ -87,6 +87,11 @@
             </div>
         </header>
 
+        <div style="text-align: center; margin: 20px 0;">
+            <button class="portfolio-btn" onclick="scrollToPortfolioButton()">View Portfolio</button>
+        </div>
+        
+
         <section class="summary">
             <h2>PROFESSIONAL SUMMARY</h2>
             <p>Certified Salesforce Marketing Professional with 3.5+ years of expertise in multi-channel campaign automation. Results-driven specialist experienced in designing, automating, and optimizing customer journeys. Skilled in integrating Marketing Cloud with external systems using REST/SOAP APIs, AMPscript, SSJS, and declarative tools. Proven track record in CRM process design, CloudPages development, customer privacy center implementation, and campaign performance tracking.</p>
@@ -363,6 +368,138 @@
                 </div>
             </div>
         </section>
+
+        <div style="text-align: center; margin: 40px 0;" id="portfolioButtonAnchor">
+            <button class="portfolio-btn" onclick="togglePortfolio()">Expand Portfolio</button>
+        </div>
+        
+        <section id="portfolioSection" style="display: none;">
+            <h2>PORTFOLIO</h2>
+          
+            <!-- CloudPages & Web Forms -->
+            <h3>📄 CloudPages & Web Forms</h3>
+            <div class="portfolio-items">
+              <div class="portfolio-card glow-on-hover">
+                <h3>Customer Privacy Center</h3>
+                <p>Consent and preferences CloudPage using AMPscript and triggered sends. Built for Boxplay Media.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>CRM Audit Survey</h3>
+                <p>Multi-step CloudPage survey with AMPscript, JavaScript, and dynamic DE insert. Used for lead scoring.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Donation Form (Experience Cloud)</h3>
+                <p>Multi-step LWC form integrated with Opportunities and Campaigns for tracking and follow-up.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Tech Thursday Microsite</h3>
+                <p>AMPscript-based RSVP CloudPage with journey integration and confirmation email.</p>
+              </div>
+            </div>
+          
+            <!-- API & Integrations -->
+            <h3>🔌 API & Backend Integration</h3>
+            <div class="portfolio-items">
+              <div class="portfolio-card glow-on-hover">
+                <h3>Lead Capture via REST API</h3>
+                <p>Captured CloudPage form leads and pushed to Salesforce CRM using SSJS and Connected App auth.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Customer Data Sync</h3>
+                <p>Synced user data between external CRM and Salesforce Marketing Cloud via REST API.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Download Tracking with AMPscript</h3>
+                <p>Tracked asset downloads by writing entries to a DE using AMPscript on click events.</p>
+              </div>
+            </div>
+          
+            <!-- Journey Builder -->
+            <h3>🧭 Journey Builder Automations</h3>
+            <div class="portfolio-items">
+              <div class="portfolio-card glow-on-hover">
+                <h3>Re-Engagement Campaign</h3>
+                <p>Executed A/B testing and dynamic content in Journey Builder to boost click-through rates.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Welcome Journey</h3>
+                <p>Created an automated welcome series triggered by new DE entries and personalized via AMPscript.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Multi-Channel Journey</h3>
+                <p>Combined email, SMS, and push notifications in one journey with real-time event triggers.</p>
+              </div>
+            </div>
+          
+            <!-- Dashboards -->
+            <h3>📊 Dashboards & Reporting</h3>
+            <div class="portfolio-items">
+              <div class="portfolio-card glow-on-hover">
+                <h3>Campaign Performance Dashboard</h3>
+                <p>Used SQL, DEs, and CloudPages to create dynamic reports on campaign metrics.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>CRM Audit Results Dashboard</h3>
+                <p>Built a CloudPage dashboard with charts and filters to analyze audit responses and tiers.</p>
+              </div>
+            </div>
+          
+            <!-- LWC Projects -->
+            <h3>💡 Experience Cloud & LWC Projects</h3>
+            <div class="portfolio-items">
+              <div class="portfolio-card glow-on-hover">
+                <h3>Membership Portal</h3>
+                <p>Experience Cloud site with LWC forms to capture member info and enable self-service access.</p>
+              </div>
+              <div class="portfolio-card glow-on-hover">
+                <h3>Donation Tracker LWC</h3>
+                <p>Built a dynamic Lightning Web Component to display donation progress and campaign impact.</p>
+              </div>
+            </div>
+          
+            <!-- Websites I Created -->
+            <h3>🌐 Websites I Created</h3>
+            <div class="portfolio-items">
+                <div class="portfolio-card glow-on-hover">
+                    <h3>Online CV Website</h3>
+                    <p>Interactive personal portfolio showcasing certifications, achievements, and work history. Includes animated badges, audio player, and responsive design.</p>
+                    <a href="https://www.tapiwamathewmuwomo.online/" target="_blank">Visit CV</a>
+                  </div>
+                  
+                  <div class="portfolio-card glow-on-hover">
+                    <h3>Royal Crown Ministries Website</h3>
+                    <p>Church website with events, donations, devotionals, and a membership form. Built with HTML, CSS, JS.</p>
+                    <a href="https://www.royalcrownministriesinternational.co.za/" target="_blank">Visit Website</a>
+                  </div>
+                  
+                  <div class="portfolio-card glow-on-hover">
+                    <h3>DJ Bobzit Website</h3>
+                    <p>Personal DJ brand website featuring an audio player, download links, gallery, and booking form. (Not yet live)</p>
+                    <a href="https://djbobzit.github.io" target="_blank">Visit Website</a>
+                  </div>
+                  
+                  <div class="portfolio-card glow-on-hover">
+                    <h3>Meatcraft Butchery Website</h3>
+                    <p>Premium online storefront for gourmet meat products. Includes dynamic product listings and elegant design. (Not yet live)</p>
+                    <a href="https://meatcraftbutchery.github.io" target="_blank">Visit Website</a>
+                  </div>
+                  
+                  <div class="portfolio-card glow-on-hover">
+                    <h3>KypexTech Website</h3>
+                    <p>Corporate website for an IT services and consulting company, showcasing services, testimonials, and contact forms.</p>
+                    <a href="https://www.kypextech.co.za/" target="_blank">Visit Website</a>
+                  </div>
+                  
+                  <div class="portfolio-card glow-on-hover">
+                    <h3>Stitches Designer Portfolio</h3>
+                    <p>Elegant portfolio site for a fashion designer featuring collections, lookbooks, and client galleries. (Not yet live)</p>
+                    <a href="https://stitches-designer.github.io" target="_blank">Visit Website</a>
+                  </div>               
+                  
+            </div>
+          </section>
+          
+        
 
         <footer>
             <p>© <span id="current-year">2024</span> Tapiwa Mathew Muwomo. All rights reserved.</p>
