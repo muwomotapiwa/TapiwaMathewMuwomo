@@ -1,0 +1,65 @@
+/* Sticky navigation bar */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.sticky-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+.sticky-nav ul li {
+    margin: 0 15px;
+}
+.sticky-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.sticky-nav ul li a:hover {
+    color: #007BFF;
+}
+
+/* Download Resume Button */
+.download-resume-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.download-resume-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Why Hire Me Section */
+#why-hire-me {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+#why-hire-me h2 {
+    margin-bottom: 10px;
+}
+#why-hire-me p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sticky-nav ul {
+        flex-direction: column;
+    }
+    .sticky-nav ul li {
+        margin: 10px 0;
+    }
+}
