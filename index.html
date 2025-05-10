@@ -448,7 +448,7 @@
         </section>
 
         <div style="text-align: center; margin: 40px 0;" id="portfolioButtonAnchor">
-            <button class="portfolio-btn" onclick="togglePortfolio()">Expand Portfolio</button>
+            <button class="portfolio-btn" onclick="trackPortfolioExpand()">Expand Portfolio</button>
         </div>
         
         <section id="portfolioSection" style="display: none;">
@@ -621,6 +621,15 @@
       }
     });
   });
+  function trackPortfolioExpand() {
+  togglePortfolio();
+  gtag('event', 'click_expand_portfolio', {
+    event_category: 'Interaction',
+    event_label: 'Expand Portfolio Button Clicked',
+    value: 1
+  });
+}
+
 </script>
 
 </body>
