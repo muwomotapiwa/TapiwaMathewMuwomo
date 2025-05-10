@@ -74,7 +74,12 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope" aria-hidden="true"></i>
-                        <a href="mailto:muwomotapiwa@gmail.com">muwomotapiwa@gmail.com</a>
+                        <a href="mailto:muwomotapiwa@gmail.com" onclick="gtag('event', 'click_email', {
+  event_category: 'Contact',
+  event_label: 'Clicked Email Link',
+  value: 1
+})">muwomotapiwa@gmail.com</a>
+
                     </div>                    
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
@@ -82,13 +87,23 @@
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin" aria-hidden="true"></i>
-                        <a href="https://linkedin.com/in/mathew-muwomo" target="_blank" rel="noopener noreferrer">linkedin.com/in/mathew-muwomo</a>
+                        <a href="https://linkedin.com/in/mathew-muwomo" target="_blank" rel="noopener noreferrer"
+   onclick="gtag('event', 'click_linkedin', {
+     event_category: 'Contact',
+     event_label: 'Clicked LinkedIn Profile',
+     value: 1
+   })">linkedin.com/in/mathew-muwomo</a>
+
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-salesforce" aria-hidden="true"></i>
-                        <a href="https://www.salesforce.com/trailblazer/mathewmuwomo" target="_blank" rel="noopener noreferrer">
-                         salesforce.com/trailblazer/mathewmuwomo
-                        </a>
+                        <a href="https://www.salesforce.com/trailblazer/mathewmuwomo" target="_blank" rel="noopener noreferrer"
+   onclick="gtag('event', 'click_trailblazer', {
+     event_category: 'Contact',
+     event_label: 'Clicked Salesforce Trailblazer Profile',
+     value: 1
+   })">salesforce.com/trailblazer/mathewmuwomo</a>
+
                     </div>
                 </div>
             </div>
