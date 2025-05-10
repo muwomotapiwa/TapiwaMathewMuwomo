@@ -102,12 +102,12 @@
         </div>
         
 
-        <section class="summary">
+        <section class="summary" id="summarySection">
             <h2>PROFESSIONAL SUMMARY</h2>
             <p>Certified Salesforce Professional with 5 years of hands-on experience in Administration, Development, and Marketing Cloud, backed by 7 Salesforce certifications including Administrator, Platform Developer I, Marketing Cloud Email Specialist, Account Engagement Specialist, Service Cloud Consultant, Data Cloud Consultant, and OmniStudio Consultant. This well-rounded expertise enables the design and execution of scalable CRM solutions, automated workflows, and personalized multi-channel campaigns. Skilled in REST/SOAP API integrations, CloudPages development, and privacy-first implementations, I help businesses unlock the full potential of the Salesforce ecosystem while ensuring cross-cloud interoperability and compliance with data protection standards like GDPR and CCPA.</p>
         </section>
 
-        <section>
+        <section id="skillsSection">
             <h2>CORE SKILLS</h2>
             <div class="skills-container">
                 <!-- Marketing Cloud -->
@@ -168,7 +168,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="achievementsSection">
             <h2>KEY ACHIEVEMENTS</h2>
             <div class="achievements">
                 <div class="achievement-card glow-on-hover">
@@ -190,7 +190,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="experienceSection">
             <h2>PROFESSIONAL EXPERIENCE</h2>
 
             <!-- Tetrad Group - Marketing Cloud Specialist -->
@@ -362,7 +362,7 @@
   
         </section>
 
-        <section>
+        <section id="educationSection">
             <h2>EDUCATION, WORK & COMMUNITY WORK</h2>
             <div class="education-container">
                 <!-- Education Column -->
@@ -413,7 +413,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="certificationsSection">
             <h2>CERTIFICATIONS</h2>
             <div class="certifications">
                 <div class="certification-badge glow-on-hover">
@@ -585,5 +585,43 @@
         </footer>
     </div>
     <script src="js/script.js"></script> 
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sectionsToTrack = [
+      { id: 'summarySection', event: 'view_summary' },
+      { id: 'skillsSection', event: 'view_skills' },
+      { id: 'achievementsSection', event: 'view_achievements' },
+      { id: 'experienceSection', event: 'view_experience' },
+      { id: 'educationSection', event: 'view_education' },
+      { id: 'certificationsSection', event: 'view_certifications' },
+      { id: 'portfolioSection', event: 'view_portfolio' }
+    ];
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.dataset.tracked !== "true") {
+          const eventName = entry.target.dataset.event;
+          gtag('event', eventName, {
+            event_category: 'Scroll',
+            event_label: eventName + ' section viewed',
+            value: 1
+          });
+          entry.target.dataset.tracked = "true"; // Only fire once
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    sectionsToTrack.forEach(section => {
+      const el = document.getElementById(section.id);
+      if (el) {
+        el.dataset.event = section.event;
+        observer.observe(el);
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
